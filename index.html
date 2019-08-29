@@ -5,8 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crypto Tracker</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <h1>YouTube video finder</h1>
+
+        <form id="js-form">
+            <label for="search-term">Enter Crypto Symbol</label>
+            <input type="text" name="search-term" id="js-search-term" value="BTC" required>
+
+            <label for="fiat">Enter Target Currency</label>
+            <input type="text" name="fiat" id="js-fiat" value="USD" required>
+
+            <input type="submit" value="Check Price!">
+        </form>
+
+        <div id="current-price" class="">
+        </div>
+
+        <p id="js-error-message" class="error-message"></p>
+        <section id="results" class="hidden">
+            <h2>Latest News</h2>
+            <ul id="results-list"></ul>
+        </section>
+    </div>
     
+    
+    
+    <!-- <form id="js-form">
+        <div>
+            <select name="crypto" id="crypto">
+                <option value="BTC">Bitcoin</option>
+                <option value="ETH">Etherium</option>
+                <option value="LTC">Litecoin</option>
+            </select>
+            <select name="fiat" id="fiat">
+                <option value="BTC">US Dollars</option>
+                <option value="GBP">GB Pounds</option>
+                <option value="EUR">EU Euros</option>
+                <input type="text" name="fiat" id="js-currency">
+            </select>
+            <input type="submit" value="Check!">
+        </div>
+        <div id="results">
+            <p id="js-error-message" class="error-message"></p>
+        
+            <div class="js-num-parks hidden"></div>
+
+            <section id="hidden" class="results hidden">
+                <ul id="results-list">
+                </ul>
+            </section>
+        </div>
+    </form> -->
+
+
+
+    <script src="app.js"></script>
 </body>
 </html>
