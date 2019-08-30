@@ -3,7 +3,7 @@
 const cryptoKey = "9c4387f84eba763603c845c574f84888";
 const newsKey = "b9e9d3186ce24713b6d5f1d2b5211acc";
 
-const cryptoBaseUrl = "http://api.coinlayer.com/api/live";
+const cryptoBaseUrl = "https://api.coinlayer.com/api/live";
 const newsBaseUrl = "https://newsapi.org/v2/everything";
 
 function formatQueryParams(params) {
