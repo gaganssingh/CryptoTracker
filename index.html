@@ -17,11 +17,75 @@
 
     <section role="main" class="container">
         <form id="js-form">
-                <label for="search-term">Enter Crypto Symbol</label>
-                <input type="text" name="search-term" id="js-search-term" value="BTC" required>
+                <label for="crypto">Select Crypto</label>
+                <select id="js-crypto" name="crypto">
+                    <option value="BTC">Bitcoin</option>
+                    <option value="BCH">Bitcoin Cash</option>
+                    <option value="ETH">Ethereum</option>
+                    <option value="ETC">Ethereum Classic</option>
+                    <option value="LTC">Litecoin</option>
+                    <option value="ABC">Alphabit</option>
+                    <option value="BNB">Binance</option>
+                    <option value="BTG">Bitcoin Gold</option>
+                    <option value="BLOCK">Blocknet</option>
+                    <option value="ADA">Cardano</option>
+                    <option value="CNX">Cryptonex</option>
+                    <option value="DASH">Dash</option>
+                    <option value="DCR">Decred</option>
+                    <option value="DGD">DigixDAO</option>
+                    <option value="DOGE">Dogecoin</option>
+                    <option value="EOS">EOS</option>
+                    <option value="MIOTA">IOTA</option>
+                    <option value="LTC">Litecoin</option>
+                    <option value="MKR">Maker</option>
+                    <option value="MONA">MonaCoin</option>
+                    <option value="XMR">Monero</option>
+                    <option value="NEO">NEO</option>
+                    <option value="GBYTE">Obyte</option>
+                    <option value="XRP">Ripple</option>
+                    <option value="611">SixEleven</option>
+                    <option value="XLM">Stellar</option>
+                    <option value="TRX">TRON</option>
+                    <option value="XRP">XRP</option>
+                    <option value="XTZ">Tezos</option>
+                    <option value="ZEC">Zcash</option>
+                    <option value="XZC">Zcoin</option>
+                </select>
     
-                <label for="fiat">Enter Target Currency</label>
-                <input type="text" name="fiat" id="js-fiat" value="USD" required>
+                <label for="fiat">Select Target Currency</label>
+                <select id="js-fiat" name="fiat">
+                    <option value="USD">United States Dollar</option>
+                    <option value="AUD">Australian Dollar</option>
+                    <option value="BDT">Bangladeshi Taka</option>
+                    <option value="BRL">Brazilian Real</option>
+                    <option value="GBP">British Pound Sterling</option>
+                    <option value="BGN">Bulgarian Lev</option>
+                    <option value="CAD">Canadian Dollar</option>
+                    <option value="CNY">Chinese Renminbi</option>
+                    <option value="HRK">Croatian Kuna</option>
+                    <option value="CZK">Czech Krone</option>
+                    <option value="DKK">Danish Krone</option>
+                    <option value="EUR">Euro</option>
+                    <option value="HKD">Hong Kong Dollar</option>
+                    <option value="INR">Indian Rupee</option>
+                    <option value="ISK">Icelandic Króna</option>
+                    <option value="JPY">Japanese Yen</option>
+                    <option value="KWD">Kuwaiti Dinar</option>
+                    <option value="LBP">Lebanese Pound</option>
+                    <option value="MXN">Mexican Peso</option>
+                    <option value="MAD">Moroccan Dirham</option>
+                    <option value="ANG">Netherlands Antillean Guilder</option>
+                    <option value="PKR">Pakistani Rupee</option>
+                    <option value="PHP">Philippine Peso</option>
+                    <option value="RON">Romanian Leu</option>
+                    <option value="RUB">Russian Ruble</option>
+                    <option value="SGD">Singapore Dollar</option>
+                    <option value="KRW">South Korean Won</option>
+                    <option value="SEK">Swedish Krona</option>
+                    <option value="CHF">Swiss Franc</option>
+                    <option value="AED">United Arab Emirates Dirham</option>
+                    <option value="NZD">New Zealand Dollar</option>
+                </select>
     
                 <input type="submit" value="Check Price!">
             </form>
@@ -30,7 +94,7 @@
     </section>
 
     <section id="news" class="hidden">
-        <h2>Latest News</h2>
+        <h2 id="news-section-title"></h2>
         <ul id="news-list"></ul>
         <p id="js-news-error-message" class="error-message"></p>
     </section>

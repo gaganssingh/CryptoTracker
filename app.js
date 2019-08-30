@@ -15,6 +15,7 @@ function formatQueryParams(params) {
 
 function displayLivePrice(responseJson) {
 	$("#current-price").empty();
+	$("#js-crypto-error-message").text("");
 	const cryptoName = Object.keys(responseJson.rates);
 	const cryptoValue = Number(Object.values(responseJson.rates)).toFixed(2);
 	$("#current-price").append(
@@ -25,15 +26,24 @@ function displayLivePrice(responseJson) {
 }
 
 function displayNews(responseJson) {
+	console.log(responseJson);
+	$("#js-news-error-message").text("");
+	$("#news-section-title").empty();
 	$("#news-list").empty();
-	for (let i = 0; i < 10; i++) {
-		$("#news-list").append(`
-        <li><h3>${responseJson.articles[i].title}</h3>
-        <p>Written By ${responseJson.articles[i].author}</p>
-        <p>${responseJson.articles[i].source.name}</p>
-        <a href="${responseJson.articles[i].url}" target="_blank">More Info</a>
-        </li>
-        `);
+
+	if (responseJson.articles.length < 10) {
+		$("#news-section-title").text("Sadly, no news articles available. Please select a different cryptocurrency.");
+	} else {
+		$("#news-section-title").text("Latest News");
+		for (let i = 0; i < responseJson.articles.length; i++) {
+			$("#news-list").append(`
+            <li><h3>${responseJson.articles[i].title}</h3>
+            <p>Written By ${responseJson.articles[i].author}</p>
+            <p>${responseJson.articles[i].source.name}</p>
+            <a href="${responseJson.articles[i].url}" target="_blank">More Info</a>
+            </li>
+            `);
+		}
 	}
 }
 
@@ -60,9 +70,9 @@ function getLivePrice(searchTerm, currency) {
 		});
 }
 
-function getLatestNews(searchTerm) {
+function getLatestNews(newsSearchTerm) {
 	const newsParams = {
-		q        : searchTerm,
+		q        : newsSearchTerm,
 		language : "en"
 	};
 	const queryString = formatQueryParams(newsParams);
@@ -90,10 +100,12 @@ function getLatestNews(searchTerm) {
 function watchForm() {
 	$("form").submit((event) => {
 		event.preventDefault();
-		const searchTerm = $("#js-search-term").val();
+		const searchTerm = $("#js-crypto").val();
+		const newsSearchTerm = `${$("#js-crypto option:selected").text()} cryptocurrency`;
+		console.log(newsSearchTerm);
 		const selectedCurrency = $("#js-fiat").val();
 		getLivePrice(searchTerm, selectedCurrency);
-		getLatestNews(searchTerm);
+		getLatestNews(newsSearchTerm);
 	});
 }
 
