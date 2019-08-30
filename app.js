@@ -25,7 +25,6 @@ function displayLivePrice(responseJson) {
 }
 
 function displayNews(responseJson) {
-	console.log(responseJson);
 	$("#news-list").empty();
 	for (let i = 0; i < 10; i++) {
 		$("#news-list").append(`
@@ -47,10 +46,17 @@ function getLivePrice(searchTerm, currency) {
 	const queryString = formatQueryParams(cryptoParams);
 	const url = cryptoBaseUrl + "?" + queryString;
 	fetch(url)
-		.then((response) => response.json())
+		.then((response) => {
+			if (response.ok) {
+				return response.json();
+			}
+			throw new Error(response.statusText);
+		})
 		.then((responseJson) => displayLivePrice(responseJson))
 		.catch((error) => {
-			$("#js-crypto-error-message").text(`Opps! ${err.message}`);
+			$("#js-crypto-error-message").text(
+				`Opps! There's something wrong with getting the price. Please try again later. ERROR MESSAGE: ${error.message}`
+			);
 		});
 }
 
@@ -75,7 +81,9 @@ function getLatestNews(searchTerm) {
 		})
 		.then((responseJson) => displayNews(responseJson))
 		.catch((error) => {
-			$("#js-news-error-message").text(`Opps! ${err.message}`);
+			$("#js-news-error-message").text(
+				`Opps! There's something wrong with getting the news. Please try again later. ERROR MESSAGE: ${error.message}`
+			);
 		});
 }
 
