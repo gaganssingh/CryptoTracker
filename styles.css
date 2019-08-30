@@ -3,7 +3,16 @@
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Varela Round', sans-serif;
+}
+
+header {
+	text-align: center;
+	margin-top: 30px;
+}
+
+#logo {
+	width: 50px;
 }
 
 button,
@@ -15,8 +24,9 @@ button:hover {
 	cursor: pointer;
 }
 
-.container {
-	max-width: 600px;
+.container,
+#news {
+	max-width: 60%;
 	margin: 0 auto;
 }
 
