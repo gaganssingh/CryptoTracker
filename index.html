@@ -11,13 +11,24 @@
 </head>
 <body>
     <header>
-        <img src="assets/Ct-logo-black.png" alt="cryptotracker logo" id="logo">
-        <h1>CryptoTracker</h1>
+        <a href="index.html"><img src="assets/Ct-logo-mag.png" alt="cryptotracker logo" id="logo"></a>
+        <a href="index.html"><h1>CryptoTracker</h1></a>
     </header>
+    
+    <section class="hero">
+        <p>Crypto junkie? We'll lend a helping hand!</p>
+        <p>Check prices and news for more than 30 cryptos.</p>
+        <a href="#container" id="check-button">
+            <div class="scroll-indicator">
+                <p>scroll down to get started</p>
+                <img src="assets/scroll.png" alt="scroll down icon">
+            </div>
+        </a>
+    </section>
 
-    <section role="main" class="container">
-        <form id="js-form">
-                <label for="crypto">Select Crypto</label>
+    <main role="main" class="container" id="container">
+        <form id="js-form" class="form">
+                <label for="crypto" class="label">Select Crypto</label>
                 <select id="js-crypto" name="crypto">
                     <option value="BTC">Bitcoin</option>
                     <option value="BCH">Bitcoin Cash</option>
@@ -52,7 +63,7 @@
                     <option value="XZC">Zcoin</option>
                 </select>
     
-                <label for="fiat">Select Target Currency</label>
+                <label for="fiat" class="label">Select Target Currency</label>
                 <select id="js-fiat" name="fiat">
                     <option value="USD">United States Dollar</option>
                     <option value="AUD">Australian Dollar</option>
@@ -89,8 +100,12 @@
     
                 <input type="submit" value="Check Price!">
             </form>
-        <div id="current-price" class=""></div>        
+                
         <p id="js-crypto-error-message" class="error-message"></p>
+    </main>
+    
+    <section class="current-price hidden">
+        <div id="current-price"></div>
     </section>
 
     <section id="news" class="hidden">
@@ -98,6 +113,15 @@
         <ul id="news-list"></ul>
         <p id="js-news-error-message" class="error-message"></p>
     </section>
+    
+    <footer class="footer hidden">
+        <h3>Attributions:</h3>
+        <div>Icons by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <div>Cryptocurrency data by <a href="https://coinlayer.com" title="coinlayer API">coinlayer API</a></div>
+        <div>News data by <a href="https://newsapi.org" title="News API">News API</a></div>
+        
+        
+    </footer>
 
     <script src="app.js"></script>
 </body>

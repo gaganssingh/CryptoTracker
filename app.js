@@ -16,31 +16,33 @@ function formatQueryParams(params) {
 function displayLivePrice(responseJson) {
 	$("#current-price").empty();
 	$("#js-crypto-error-message").text("");
+	$(".current-price").addClass("hidden");
+	$(".footer").addClass("hidden");
 	const cryptoName = Object.keys(responseJson.rates);
 	const cryptoValue = Number(Object.values(responseJson.rates)).toFixed(2);
 	$("#current-price").append(
-		`<h2>1 ${cryptoName} is ${cryptoValue} ${responseJson.target}</h2>
+		`<h2>1 ${cryptoName} = ${responseJson.target} ${cryptoValue}</h2>
         `
 	);
 	$("#news").removeClass("hidden");
+	$(".current-price").removeClass("hidden");
+	$(".footer").removeClass("hidden");
 }
 
 function displayNews(responseJson) {
-	console.log(responseJson);
 	$("#js-news-error-message").text("");
 	$("#news-section-title").empty();
 	$("#news-list").empty();
-
 	if (responseJson.articles.length < 10) {
 		$("#news-section-title").text("Sadly, no news articles available. Please select a different cryptocurrency.");
 	} else {
 		$("#news-section-title").text("Latest News");
-		for (let i = 0; i < responseJson.articles.length; i++) {
+		for (let i = 0; i < 10; i++) {
 			$("#news-list").append(`
-            <li><h3>${responseJson.articles[i].title}</h3>
-            <p>Written By ${responseJson.articles[i].author}</p>
-            <p>${responseJson.articles[i].source.name}</p>
-            <a href="${responseJson.articles[i].url}" target="_blank">More Info</a>
+            <li class="news-block"><h3>${responseJson.articles[i].title}</h3>
+            <p>By: ${responseJson.articles[i].author}</p>
+            <p>Source: ${responseJson.articles[i].source.name}</p>
+            <a href="${responseJson.articles[i].url}" target="_blank">Read Article</a>
             </li>
             `);
 		}
