@@ -104,7 +104,6 @@ function watchForm() {
 		event.preventDefault();
 		const searchTerm = $("#js-crypto").val();
 		const newsSearchTerm = `${$("#js-crypto option:selected").text()} cryptocurrency`;
-		console.log(newsSearchTerm);
 		const selectedCurrency = $("#js-fiat").val();
 		getLivePrice(searchTerm, selectedCurrency);
 		getLatestNews(newsSearchTerm);
