@@ -14,7 +14,7 @@
 ## Technologies used:
 ### HTML/CSS/JavaScript/jQuery
 
-## An app to check current price of a user selected cryptocurrency against a user selected fiat currency.
+## An app to check the current price of a user-selected cryptocurrency against user-selected fiat currency.
 
 ### Upon clicking the "Check Price" button, the app will display current price of the selected crypto, along with relevant news articles.
 
